@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Łódź</title>
+    <link
+      rel="icon"
+      href="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/383/original/kisspng-computer-icons-building-icon-design-urban-planning-urban-construction-5adb35d3a8c6b1.1662680215243156036913.png?1667937762"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&family=Open+Sans&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/680e85e9ae.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        font-family: "Open Sans", sans-serif;
+      }
+      .navbar {
+        box-shadow: 0px 8px 8px -6px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 120px;
+        text-align: center;
+        padding: 250px;
+        color: #ffff;
+      }
+      header {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/102/original/12308032_10153458386644864_5143617081246200553_o.jpg?1667828441");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      h2 {
+        font-family: "Playfair Display", serif;
+        padding: 50px;
+        font-size: 40px;
+        color: #2c2d32;
+      }
+      .short-info {
+        padding: 50px;
+      }
+      .short-info .card-body {
+        height: 140px;
+      }
+      .short {
+        padding: 20px;
+        line-height: 30px;
+        max-width: 700px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .historical {
+        background-color: #f8f8f8;
+        padding: 50px;
+      }
+      .historical img {
+        display: block;
+        margin: 0 auto;
+      }
+      .hist {
+        line-height: 30px;
+        padding: 30px;
+        background-color: #ffff;
+      }
+      .buffer {
+        margin: 40px;
+      }
+      .top-places {
+        padding: 50px;
+      }
+      /*gallery */
+      .gallery {
+        background-color: #f8f8f8;
+        text-align: center;
+        padding: 50px;
+      }
+      .gallery .carousel-item img {
+        max-height: 560px;
+      }
+      .map-lodz {
+        padding: 50px;
+      }
+      .carousel {
+        display: block;
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .cards-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        margin: 0 0.5em;
+        width: calc(100% / 3);
+        border: 1 solid black;
+        border-radius: 0px;
+      }
+      .carousel-inner {
+        padding: 1 eml;
+      }
+      .carousel-control-prev,
+      .carousel-control-next {
+        background-color: #120f0fb1;
+        width: 6vh;
+        height: 6vh;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .carousel-control-prev span,
+      .carousel-control-next span {
+        width: 1.5 rem;
+        height: 1.5 rem;
+      }
+      .image-wrapper {
+        margin: 0 auto;
+        display: flex;
+        /*align-items: center;
+        justify-content: center;*/
+      }
+      .image-wrapper img {
+        max-width: 100%;
+        max-height: 100%;
+        height: 230px;
+      }
+      /*navigation*/
+      iframe {
+        display: block;
+        margin: 0 auto;
+      }
+      .map-lodz h3 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .map-lodz ul,
+      .map-lodz h3 {
+        padding: 0;
+        line-height: 30px;
+        margin-left: 50px;
+      }
+      .map-lodz a {
+        text-decoration: none;
+        color: #2c2d32;
+      }
+      .station {
+        list-style-type: none;
+      }
+      .map-lodz .transport {
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/286/original/tram.png?1667909128");
+        background-repeat: no-repeat;
+        filter: grayscale(105%);
+        background-position-x: 260px;
+        background-position-y: 140px;
+      }
+
+      /* footer */
+      footer {
+        padding: 70px;
+        color: #2c2d32;
+        background-color: #c1c1c1;
+      }
+      footer h3,
+      footer ul {
+        font-size: 20px;
+        line-height: 30px;
+        list-style-type: none;
+        padding-left: 0;
+        font-size: 20px;
+      }
+      footer a {
+        color: #2c2d32;
+      }
+      footer a:hover {
+        text-decoration: none;
+        color: #2c2d32;
+        cursor: pointer;
+      }
+      .logo {
+        display: block;
+        margin: 0 auto;
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav
+          class="navbar navbar-expand-sm fixed-top navbar-light shadow p-3 mb-5 bg-light rounded"
+        >
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#section1"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section2">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section3">Top places</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section4">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#section5">Navigation</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <h1 id="section1">ŁÓDŹ</h1>
+      </header>
+      <section class="short-info">
+        <div class="row d-flex justify-content-center">
+          <div class="cards-wrapper">
+            <div
+              class="card text-center bg-light border-0"
+              style="width: 10rem"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fa-solid fa-location-dot"></i>
+                </h5>
+                <p class="card-text">Central Europe/<br />Central Poland</p>
+              </div>
+            </div>
+            <div
+              class="card text-center bg-light border-0"
+              style="width: 10rem"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fa-solid fa-language"></i>
+                </h5>
+                <p class="card-text font-italic">[wuʨ̑]</p>
+                <p class="card-text">literally "boat"</p>
+              </div>
+            </div>
+
+            <div
+              class="card text-center bg-light border-0"
+              style="width: 10rem"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fa-solid fa-people-group"></i>
+                </h5>
+                <p class="card-text">4th in Poland</p>
+                <p class="card-text">670,642</p>
+              </div>
+            </div>
+          </div>
+          <div class="short">
+            <p>
+              Łódź is a city of contrasts which intrigues almost at every step.
+              It is full of factories and, at the same time, it is very green;
+              eclectic but also avant-garde. Lodz dazzles with the lavishness of
+              factory owners’ palaces and astonishes with artistic
+              installations.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="historical" id="section2">
+        <h2>History</h2>
+        <div class="row buffer">
+          <div class="col-sm-6 align-self-center">
+            <p class="hist" weight="100%">
+              Łódź was once a small settlement that first appeared in
+              14th-century records. <br />
+              The Second Industrial Revolution brought rapid growth in
+              <strong>textile manufacturing</strong> and in population owing to
+              the inflow of migrants, notably Germans and Jews. Ever since the
+              industrialization of the area the city has struggled with
+              multinationalism and social inequalities.<br />
+              The contrasts greatly reflected on the architecture of the city,
+              where luxurious mansions coexisted with
+              <strong>red-brick factories</strong> and dilapidated tenement
+              houses.
+            </p>
+          </div>
+          <div class="col-sm-6 align-self-center">
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/131/original/lodz_majewski_fabryka_poznanskiego.jpg?1667830575"
+              alt="Responsive image"
+              width="100%"
+              height="auto"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <div class="row buffer">
+          <div class="col-sm-6 align-self-center">
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/133/original/Bundesarchiv_Bild_146-2007-0153__Polen__Lodz_nach_deutscher_Besetzung.jpg?1667830676"
+              alt="Responsive image"
+              width="100%"
+              height="auto"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-sm-6 align-self-center">
+            <p class="hist" weight="100%">
+              The industrial development and demographic surge made Łódź one of
+              the largest cities in Poland. Under the German occupation during
+              World War II Łódź was briefly renamed
+              <strong>Litzmannstadt</strong>. The city's population was
+              persecuted and its large Jewish minority was forced into a walled
+              zone known as the Łódź Ghetto, from where they were sent to German
+              concentration and extermination camps.
+            </p>
+          </div>
+        </div>
+        <div class="row buffer">
+          <div class="col-sm-6 align-self-center">
+            <p class="hist" weight="100%">
+              Łódź experienced a sharp demographic and economic decline after
+              1989. Łódź is ranked by the Globalization and World Cities
+              Research Network on the “Sufficiency” level of global influence
+              and is internationally known for its National Film School, a
+              cradle for the most renowned Polish actors and directors (Andrzej
+              Wajda, Roman Polanski). <br />
+              In 2017, the city was inducted into the
+              <strong>UNESCO Creative Cities Network</strong> and named
+              <strong>UNESCO City of Film</strong>. <br/ > <br />
+              <a
+                class="btn btn-outline-dark"
+                href="https://en.wikipedia.org/wiki/%C5%81%C3%B3d%C5%BA"
+                role="button"
+                target="_blank"
+                >Learn more</a
+              >
+            </p>
+          </div>
+          <div class="col-sm-6 align-self-center">
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/129/original/halka-002.jpg?1667830515"
+              alt="Responsive image"
+              width="100%"
+              height="auto"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </section>
+      <section></section>
+      <section class="top-places" id="section3">
+        <h2>Top places</h2>
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-ride="carousel"
+          data-interval="false"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="cards-wrapper">
+                <div class="card">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/109/original/255981d82665e03259c8959279bb4556.jpg?1667828845"
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Piotrkowska Street</h5>
+                    <p class="card-text">
+                      The longest Polish promenade with tenement houses,
+                      palaces, shops, restaurants, cafés, pubs, and clubs
+                    </p>
+                    <a
+                      href="https://lodz.travel/en/tourism/what-to-see/piotrkowska-street/"
+                      class="btn btn-link text-secondary"
+                      target="_blank"
+                      >Find out more</a
+                    >
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/103/original/12006576_10153357682674864_7909719657970390927_o.jpg?1667828573"
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Manufaktura</h5>
+                    <p class="card-text">
+                      An arts centre, shopping mall, and leisure complex in
+                      renovated old textile factory building <br />
+                    </p>
+                    <a
+                      href="https://en.manufaktura.com"
+                      class="btn btn-link text-secondary"
+                      target="_blank"
+                      >Find out more</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="cards-wrapper">
+                <div class="card">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/108/original/ec_PA_nowe.jpg?1667828754"
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">EC1</h5>
+                    <p class="card-text">
+                      Planetarium, cultural centre, meetings place in the
+                      revitalised buildings of the former EC1 Lodz Power Plant
+                    </p>
+                    <a
+                      href="https://ec1lodz.pl/?language=en"
+                      class="btn btn-link text-secondary"
+                      target="_blank"
+                      >Find out more</a
+                    >
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/107/original/staw-w-parku-na-zdrowiu.jpg?1667828709"
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">ZOO and Na Zdrowie Park</h5>
+                    <p class="card-text">
+                      Historical park and botanical garden, aquapark and modern
+                      zoo in the vicinity
+                    </p>
+                    <a
+                      href="https://kopanina.pl/park-na-zdrowiu-lodzki-ogrod-botaniczny-i-wszystko-to-co-tam-znajdziesz-a-o-czym-moze-nie-wiesz/"
+                      class="btn btn-link text-secondary"
+                      target="_blank"
+                      >Find out more</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="cards-wrapper">
+                <div class="card">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/105/original/312551152_480666237460885_6901950149259707040_n.jpg?1667828620"
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Księży Młyn</h5>
+                    <p class="card-text">
+                      Post-factory coplex is venue for cultural events,
+                      festivals, fashion shows, and museums
+                    </p>
+                    <a
+                      href="https://lodz.travel/en/tourism/what-to-see/ksiezy-mlyn/"
+                      class="btn btn-link text-secondary"
+                      target="_blank"
+                      >Find out more</a
+                    >
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/106/original/278322234_4955172471227482_1911438121511209647_n.jpg?1667828667"
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Monopolis</h5>
+                    <p class="card-text">
+                      Converted factories now housing restaurants, bakeries, an
+                      art gallery, offices and event venues.
+                    </p>
+                    <a
+                      href="https://monopolis.pl"
+                      class="btn btn-link text-secondary"
+                      target="_blank"
+                      >Find out more</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <section class="gallery" id="section4">
+        <h2>Gallery</h2>
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-ride="carousel"
+          data-interval="false"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="10"
+            ></li>
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="11"
+            ></li>
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="12"
+            ></li>
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="12"
+            ></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/110/original/csm__2015__Przystanek_Piotrkowska_Centrum__fot._S._Glapinski___4__fd273d1067.jpg?1667828937"
+                alt="slide1"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/111/original/jednorozec.jpg?1667828970"
+                alt="slide2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/112/original/279580239_368716425299398_7186025589164663410_n.jpg?1667829031"
+                alt="slide3"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/113/original/csm_OFF_Piotrkowska_fot._UML_3b74bbaf52.jpg?1667829091"
+                alt="slide4"
+              />
+            </div>
+
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/114/original/28337324_10155650515229864_1715431683764786067_o.jpg?1667829173"
+                alt="slide5"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/115/original/Dworzec-%C5%81%C3%B3d%C5%BA-Fabryczna.jpg?1667829310"
+                alt="slide6"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/116/original/Park_Staromiejski_w_%C5%81odzi_-_staw.jpg?1667829349"
+                alt="slide7"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/117/original/143e6903-cf03-4312-93c0-dfd222f0c19f.png?1667829408"
+                alt="slide8"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/118/original/9878542_lodzkie-murale-ulica--wieckowskiego.jpg?1667829441"
+                alt="slide9"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/120/original/csm_284944241_3234782240099967_2559570079594064038_n_e683aa96fc.jpg?1667829621"
+                alt="slide10"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/122/original/310613824_5582341768509303_4619155990025365988_n.jpg?1667829688"
+                alt="slide11"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/123/original/244440989_10158803517659864_6274681397154331288_n.jpg?1667829721"
+                alt="slide12"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/124/original/csm_Manufaktura_z_gory_widok_z_Muz._Fabryki_fot._Sebastian_Glapinski_UML_8ae865d2a4.jpg?1667829752"
+                alt="slide13"
+              />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <section class="map-lodz" id="section5">
+        <h2>How to get to and navigate through</h2>
+        <div class="row d-flex justify-content-around">
+          <div class="col-sm align-self-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158003.70921781135!2d19.48059255!3d51.7731179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bcb24754556af%3A0xcb7cae639b21dbac!2zxYHDs2TFug!5e0!3m2!1spl!2spl!4v1667764354353!5m2!1spl!2spl"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="transport col-sm align-self-center">
+            <br />
+            <h3>By plane</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.lodz-airport.pl/en/passenger-zone/flight-timetable"
+                  target="_blank"
+                  >Łódź Airport Władysław Reymont</a
+                >
+              </li>
+            </ul>
+            <h3>By train</h3>
+            <ul>
+              <li>
+                <a href="https://lka.lodzkie.pl/strona-glowna/" target="_blank"
+                  >Łódź Agglomeration Railway</a
+                >
+              </li>
+              <li class="station text-muted">Łódź Fabryczna Railway Station</li>
+              <li class="station text-muted">Łódź Widzew Railway Station</li>
+              <li class="station text-muted">Łódź Kaliska Railway Station</li>
+            </ul>
+            <h3>By coach</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.flixbus.com/?_sp=32564b67-dbf7-4c67-b3c8-b8e6edcbffb7.1667842291915&atb_pdid=63fd0a81-b57f-4100-84d7-3e231b4fa8ae&noRedirect=true"
+                  target="_blank"
+                  >Flixbus</a
+                >
+              </li>
+            </ul>
+            <h3>Public transport</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.mpk.lodz.pl/lang.action?lang=en"
+                  target="_blank"
+                  >MPK</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://lodzkirowerpubliczny.pl/?lang=2"
+                  target="_blank"
+                  >Public bike</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="row justify-content-center">
+          <div class="col-sm-2">
+            <img
+              class="logo img-fluid"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/052/188/original/logo_wer_podst_zhaslem_eng_skala_szarosci.jpg?1667839938"
+              alt="logo"
+              width="100%"
+              height="auto"
+            />
+          </div>
+          <div class="col-sm-4 align-self-center">
+            <h3><strong>More about Łódź</strong></h3>
+            <ul>
+              <li>
+                <a href="https://uml.lodz.pl/en/" target="_blank"
+                  >Łódź City Page</a
+                >
+              </li>
+              <li>
+                <a href="https://lodz.travel/en/" target="_blank"
+                  >Łódź Tourism Page</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.tripadvisor.com/Tourism-g274837-Lodz_Lodz_Province_Central_Poland-Vacations.html"
+                  target="_blank"
+                  >Łódź Trip Advisor</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 align-self-center">
+            <h3>
+              Project of hometown landing page for SheCodes Challenge. <br />
+              Created by Paulina Mozga
+            </h3>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
